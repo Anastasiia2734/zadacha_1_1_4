@@ -7,6 +7,16 @@
     <groupId>org.example</groupId>
     <artifactId>TaskJDBC</artifactId>
     <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <hibernate-version>5.6.3.Final</hibernate-version>
+        <dependency>
+            <groupId>com.zaxxer</groupId>
+            <artifactId>HikariCP</artifactId>
+            <version>5.0.1</version>
+        </dependency>
+    </properties>
+
     <build>
         <plugins>
             <plugin>
@@ -21,7 +31,8 @@
     </build>
 
     <dependencies>
-        <!-- https://mvnrepository.com/artifact/junit/junit -->
+        <!-- JUnit for testing -->
+
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -29,30 +40,25 @@
             <scope>test</scope>
         </dependency>
 
-         <dependency>
-             <groupId>junit</groupId>
-             <artifactId>junit</artifactId>
-             <version>4.13.2</version>
-             <scope>test</scope>
-         </dependency>
-
+        <!-- MySQL Connector for database connection -->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.25</version>
         </dependency>
 
+        <!-- Hibernate Core -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>${hibernate-version}</version>
+        </dependency>
+        <!-- Hibernate JPA API -->
         <dependency>
             <groupId>org.hibernate.javax.persistence</groupId>
             <artifactId>hibernate-jpa-2.1-api</artifactId>
             <version>1.0.2.Final</version>
         </dependency>
 
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-core</artifactId>
-            <version>5.6.3.Final</version>
-        </dependency>
-     </dependencies>
-
+    </dependencies>
 </project>

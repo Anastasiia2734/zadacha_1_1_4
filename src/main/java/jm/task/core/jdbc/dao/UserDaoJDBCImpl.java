@@ -1,14 +1,12 @@
 package jm.task.core.jdbc.dao;
 
-import com.sun.xml.bind.v2.model.core.ID;
 import jm.task.core.jdbc.model.User;
 import jm.task.core.jdbc.util.Util;
+import org.hibernate.SessionFactory;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-
-import static javax.swing.UIManager.getString;
 
 public class UserDaoJDBCImpl extends Util implements UserDao {
 private static final String CREATE_TABLE = "CREATE TABLE IF NOT EXISTS users (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(20), lastname VARCHAR(20), age TINYINT NOT NULL)" ;
@@ -17,7 +15,7 @@ private static final String DELETE_USER = "DELETE FROM users WHERE id = ?";
 private static final String GET_ALL_USERS = "SELECT * FROM users";
 private static final String DROP_TABLE = "DROP TABLE IF EXISTS users";
 private static final String CLEAR_TABLE = "DELETE FROM users";
-Connection connection = Util.getConnection();
+SessionFactory sessionFactory = Util.getSessionFactory();
 
     public UserDaoJDBCImpl() {
 
