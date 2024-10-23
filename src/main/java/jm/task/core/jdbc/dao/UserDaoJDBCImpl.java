@@ -8,7 +8,9 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserDaoJDBCImpl extends Util implements UserDao {
+import static jm.task.core.jdbc.util.Util.connection;
+
+public class UserDaoJDBCImpl implements UserDao {
 private static final String CREATE_TABLE = "CREATE TABLE IF NOT EXISTS users (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(20), lastname VARCHAR(20), age TINYINT NOT NULL)" ;
 private static final String CREATE_USER = "INSERT INTO users (name, lastName, age) values (?, ?, ?)";
 private static final String DELETE_USER = "DELETE FROM users WHERE id = ?";
@@ -17,9 +19,7 @@ private static final String DROP_TABLE = "DROP TABLE IF EXISTS users";
 private static final String CLEAR_TABLE = "DELETE FROM users";
 SessionFactory sessionFactory = Util.getSessionFactory();
 
-    public UserDaoJDBCImpl() {
 
-    }
 
     public void createUsersTable() {
         Statement statement = null;
